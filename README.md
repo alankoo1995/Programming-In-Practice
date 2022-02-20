@@ -21,6 +21,8 @@
 
 `select * from information_schema.innodb_lock_waits` 查看是哪个事务在等待锁释放
 
+实际上是gorm一直在持有这个事务，test环境可以通过重启服务解决，根本解决方法还是修复程序bug，避免panic
+
 ## Memory
 1. 当需要一个超大规模的数据load进内存时，应当考虑是否可以将这部分数据缓存在本地，因为并发场景下大量重复的数据可能导致内存飙升
 
